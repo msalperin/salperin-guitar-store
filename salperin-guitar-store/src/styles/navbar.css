@@ -1,0 +1,92 @@
+header {
+    width: 100%;
+    background-color: #000e12;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-height: 200px;
+    font-weight: bold;
+
+    background-image: url('../img/1117.jpg');
+}
+
+/* logo */
+
+.header-logo{
+    width: 13%;
+    margin-left: 7%;
+    border-radius: 5px
+}
+
+/* nav */
+
+nav {
+    width: 40%;
+    margin-left: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+}    
+
+nav ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; 
+    margin: auto;
+}
+
+nav ul li{
+    list-style: none;
+    margin-left: 2%;    
+    background-color: rgb(88, 88, 88);
+    padding: 10px;
+    border: 1px black;
+    border-radius: 5px;
+    text-shadow: 2px 2px rgb(116, 116, 116);
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: inherit;
+   
+
+    
+}
+
+
+/* usuario */
+
+
+
+/* login carrito */
+
+.contenedor-carrito{
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-right: 10%;
+    
+}
+
+.bienvenida-usuario{
+    margin: auto;
+    font-size: inherit;
+   
+}
+
+.estilo-carrito{
+    color: white;
+    font-size: 30px;
+
+}
+.estilo-usuario{
+    color: white;
+    font-size: 30px;
+}
+
+
+
