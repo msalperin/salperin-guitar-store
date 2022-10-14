@@ -1,29 +1,33 @@
 header {
     width: 100%;
-    background-color: #000e12;
+    /* background-color: #000e12; */
     color: white;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     max-height: 200px;
     font-weight: bold;
-
     background-image: url('../img/1117.jpg');
+    background-position: center;
+    background-size: 1500px;
 }
 
 /* logo */
 
+.link-logo{
+    width: 30%;
+}
 .header-logo{
-    width: 13%;
-    margin-left: 7%;
-    border-radius: 5px
+    width: 40%;
+    margin-left: 15%;
+    border-radius: 5px;   
 }
 
 /* nav */
 
 nav {
-    width: 40%;
-    margin-left: 0px;
+    width: 25%;
+    margin-left: -160px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -35,25 +39,31 @@ nav ul {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row; 
+    justify-content: space-around;
     margin: auto;
+    background-color: black;
+    border-radius: 10px;
+    
 }
 
 nav ul li{
     list-style: none;
     margin-left: 2%;    
-    background-color: rgb(88, 88, 88);
+  
     padding: 10px;
-    border: 1px black;
     border-radius: 5px;
-    text-shadow: 2px 2px rgb(116, 116, 116);
+    
 }
 
-nav ul li a {
+.link {
     text-decoration: none;
     color: inherit;
-   
+}
 
-    
+.link:hover {
+    text-decoration: none;
+    border-bottom: 2px solid white;
+   
 }
 
 
@@ -69,6 +79,7 @@ nav ul li a {
     flex-direction: row;
     margin: auto;
     margin-right: 10%;
+    background-color: black;
     
 }
 
