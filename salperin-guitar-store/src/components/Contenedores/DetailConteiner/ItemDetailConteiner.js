@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
-import itemlist from "../styles/itemlist.css";
 
-import ItemDetail from "./ItemDetail";
-import ItemCount from "./ItemCount";
+
+import ItemDetail from "./ItemDetail"
+
 
 
 /*Llamado a api */
@@ -54,11 +54,8 @@ const ItemDetailConteiner = () => {
     return ( 
 
         <>
-           <h1>Vista Detalle de producto</h1> 
 
-           <ItemDetail producto={producto}/> 
-
-           <ItemCount stock={5} onAdd={onAdd}/> 
+           <ItemDetail onAdd={onAdd} producto={producto}/> 
 
         </>
      );

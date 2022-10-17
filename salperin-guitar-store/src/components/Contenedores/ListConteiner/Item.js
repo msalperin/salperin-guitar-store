@@ -1,11 +1,11 @@
 import React from "react";
-import itemlist from "../styles/itemlist.css";
-import ImagenLesPaul from "../img/LesPaul.jpg";
+import itemlist from "../../../styles/itemlist.css";
+import ImagenLesPaul from "../../../img/LesPaul.jpg";
+
 import { Link } from "react-router-dom";
 
-/* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHandHorns} from'@fortawesome/free-solid-svg-icons'; 
- */
+import Rating from "./Rating";
+
 
 const Item = ({producto}) => {
     return ( 
@@ -19,7 +19,7 @@ const Item = ({producto}) => {
                          <h3>$ {producto.precio}</h3>
                       </div>  
                       
-                      <h4>Rating</h4>
+                      <Rating className='rate' producto={producto}></Rating>
 
                       <Link className="boton-tarjeta" to={`/detalle-producto/${producto.id}`}>
                        <button> + Mas detalles</button> 
@@ -31,5 +31,7 @@ const Item = ({producto}) => {
 
      );
 }
- 
+
+
+
 export default Item;

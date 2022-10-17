@@ -80,6 +80,8 @@
     
 }
 
-.detalle-tarjeta h4{
+.rating-class {
+
+    width: 40%;
     margin: auto;
 }
