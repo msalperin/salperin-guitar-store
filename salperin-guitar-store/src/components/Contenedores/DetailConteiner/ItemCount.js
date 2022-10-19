@@ -32,12 +32,13 @@ const Contador = ({stock, onAdd}) => {
          <button className='button-add-to-cart' onClick={restarItem}>-</button>
            <h2 className='add-to-cart-count'>{cuenta}</h2>
          <button className='button-add-to-cart' onClick={sumarItem}>+</button>
-         <button className='agregar-al-carrito' disabled={stock===0} onClick={agregarAlCarrito}>Agregar al Carrito <FontAwesomeIcon icon={faCartShopping}/> </button>
          
+         <button className='agregar-al-carrito' disabled={stock===0} onClick={agregarAlCarrito}>
+         Agregar al Carrito <FontAwesomeIcon icon={faCartShopping}/> </button>
+        
        </div>
         
-       
-    );
+     );
 }
  
 export default Contador;

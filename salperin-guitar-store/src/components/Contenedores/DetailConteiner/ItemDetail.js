@@ -1,12 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import itemdetail from "../../../styles/itemdetail.css";
-
 import ItemCount from "./ItemCount";
 
+import {Link} from 'react-router-dom';
 import FotoProducto from '../../../img/LesPaul.jpg';
 
 
-const ItemDetail = ({producto, onAdd}) => {
+const ItemDetail = ({producto}) => {
+
+     const [showItemCount, setShowItemCount] = useState(true);
+
+    /*Agregar al carrito */ 
+    const onAdd = (cuenta) => {
+      setShowItemCount(false);
+      alert("Agregaste" + cuenta) 
+    }
   
     return ( 
        
@@ -26,9 +34,15 @@ const ItemDetail = ({producto, onAdd}) => {
               <br></br>
               <h2>Descripcion: Es una producto producto muy especial senti la magia en tus dedos toca como Jimi Hendrix y Yoda juntos.</h2>
                 
-                <div>
-                 <ItemCount stock={5} onAdd={onAdd}/>  
-                </div>
+               <div>
+                 {showItemCount ?    
+                 <ItemCount stock={producto.stock} onAdd={onAdd}/>
+                 :
+                 <Link to={'/cart'}>
+                    <button>Finalizar Compra</button>
+                 </Link>
+                 }   
+               </div>
                  
              </div>
 

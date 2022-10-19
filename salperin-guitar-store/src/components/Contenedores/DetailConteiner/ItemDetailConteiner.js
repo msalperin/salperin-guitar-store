@@ -46,16 +46,12 @@ const ItemDetailConteiner = () => {
         })
       }, [id])
     
-    /*Agregar al carrito */ 
-    const onAdd = (cuenta) => {
-       alert("Agregaste" + cuenta)
-    }
   
     return ( 
 
         <>
 
-           <ItemDetail onAdd={onAdd} producto={producto}/> 
+           <ItemDetail producto={producto}/> 
 
         </>
      );
