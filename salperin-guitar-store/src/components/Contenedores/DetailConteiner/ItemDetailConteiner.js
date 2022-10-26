@@ -34,10 +34,10 @@ const ItemDetailConteiner = () => {
     useEffect(() => {
         obtenerProductos
         .then((data)=>{
-          console.log(data)
+        
         /*   const productoBuscado = data.find(producto => producto.id === id);  */
           const productoBuscado = data.find(producto=> producto.id === Number(id))
-          console.log(productoBuscado)
+         
           setProducto(productoBuscado);
         })
         .catch((error)=>{

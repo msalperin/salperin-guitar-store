@@ -8,30 +8,31 @@ import ItemListConteiner from './components/Contenedores/ListConteiner/ItemListC
 import ItemDetailConteiner from './components/Contenedores/DetailConteiner/ItemDetailConteiner';
 import Cart from './components/Cart';
 
+import { CustomProvider } from './context/CartContext';
+
+
+
 function App() {
   
-  const nombreUsuario = "Luis Gonzales"
-  const greeting = "Hola. Its a long way to the top."
 
   return (
     
+    <CustomProvider>
     <BrowserRouter>
-    
-      <div>
        
-       <NavBar nombreUsuario={nombreUsuario}></NavBar>
+       <NavBar></NavBar>
        
        <Routes>
-          <Route path="/" element={<ItemListConteiner greeting={greeting} />}/>
+          <Route path="/" element={<ItemListConteiner/>}/>
           <Route path="/listado-productos/:id" element={<ItemListConteiner />}/>  
           <Route path="/detalle-producto/:id" element={<ItemDetailConteiner />}/> 
           <Route path='/cart' element={<Cart/>} />
           <Route path="*" element={<ItemListConteiner />}/>
        </Routes>
-      
-      </div>
     
     </BrowserRouter>
+
+    </CustomProvider>
   );
 }
 

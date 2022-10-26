@@ -24,7 +24,7 @@ const obtenerProductos = new Promise((resolve, reject)=>{
   })
 
 
-const ItemListConteiner = ({greeting}) => {
+const ItemListConteiner = () => {
     
     /* Llamado a Api Productos */
 

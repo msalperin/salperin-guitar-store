@@ -1,17 +1,23 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import itemdetail from "../../../styles/itemdetail.css";
+import FotoProducto from '../../../img/LesPaul.jpg';
 import ItemCount from "./ItemCount";
 
+import { Context } from "../../../context/CartContext";
+
 import {Link} from 'react-router-dom';
-import FotoProducto from '../../../img/LesPaul.jpg';
+
 
 
 const ItemDetail = ({producto}) => {
 
      const [showItemCount, setShowItemCount] = useState(true);
 
-    /*Agregar al carrito */ 
+     const {addItem} = useContext(Context);  
+    
+     /*Agregar al carrito */ 
     const onAdd = (cuenta) => {
+      addItem(producto,cuenta);
       setShowItemCount(false);
       alert("Agregaste" + cuenta) 
     }
