@@ -1,26 +1,26 @@
 import React, {useContext} from "react";
+import carrito from "../styles/carrito.css";
 
 import { Context } from "../context/CartContext";
 
 const Cart = () => {
     
-    const { cart, total } = useContext(Context);
+    const { cart, total, deleteItem, clear } = useContext(Context);
     console.log(cart)
+
+   /*  const agregarAlCarrito = () => {
+      deleteItem();
+  } */
+  
 
     return (  
        <>
 
         <div className="carrito-conteiner">  
            
-           <h1>Carrito</h1>
+           <h1>Tu Carrito:</h1>
 
-           {cart.map((item)=> { 
-              return <h2 key={item.id}> {item.nombre} {item.precio} {item.cantidad} {item.cantidad*item.precio}</h2>
-            })
-           } 
-            <h1>{total}</h1>
-
-           <table>
+           <table className="table-carrito">
               <tr>
                 <th>Nombre del producto</th>
                 <th>Precio</th>
@@ -34,11 +34,18 @@ const Cart = () => {
                 <td>{item.precio}</td>
                 <td>{item.cantidad} </td>
                 <td>{item.cantidad*item.precio}</td>
-                <td>Eliminar</td>
+                <td> <button onClick={() => deleteItem(item.id) }>Eliminar</button> </td>
             </tr>  
            })}
-             <tr>{total}</tr>
+             <tr>
+               <td colSpan="3">Total:</td>
+               <td>{total}</td>
+             </tr>
+             
            </table>
+
+           <button onClick={clear}>Clear</button>
+
 
         </div>  
 

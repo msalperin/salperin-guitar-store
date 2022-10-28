@@ -1,0 +1,24 @@
+.carrito-conteiner {
+    width: 90%; 
+    margin: auto;
+    margin-top: 30px;
+    
+}
+
+.table-carrito {
+    margin-top: 10px;
+    width: 90%;
+    border: 1px solid salmon;
+}
+
+table tr th {
+    border: 2px solid grey;
+    padding: 5px;
+    text-align: center;
+}
+
+td {
+    border: 1px solid grey;
+    text-align: center;
+    padding: 10px;
+}

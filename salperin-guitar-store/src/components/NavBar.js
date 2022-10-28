@@ -5,7 +5,7 @@ import logo from '../img/logo.png';
 import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { /* faCartShopping */faUser} from'@fortawesome/free-solid-svg-icons'; 
+import { faUser} from'@fortawesome/free-solid-svg-icons'; 
 
 import { CartWidget } from "../elements/cartWidget";
 
