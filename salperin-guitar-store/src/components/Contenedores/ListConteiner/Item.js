@@ -12,7 +12,7 @@ const Item = ({producto}) => {
           
         <div className="tarjeta-conteiner">
 
-                   <img src={ImagenLesPaul} alt="gibson-lespaul"></img>
+                   <img src={producto.imagen}  alt="gibson-lespaul"></img>
                    <div className="detalle-tarjeta">
                       <div className="nombre-tarjeta ">
                          <h3>{producto.nombre}</h3>

@@ -1,17 +1,48 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import carrito from "../styles/carrito.css";
 
 import { Context } from "../context/CartContext";
 
+import { db } from "../firebase/firebaseConfig";
+import { collection, addDoc, serverTimestamp, doc, updateDoc } from "firebase/firestore";
+
+
 const Cart = () => {
     
     const { cart, total, deleteItem, clear } = useContext(Context);
-    console.log(cart)
+    
+    const [trackingNumber, setTrackingNumber] = useState(false);
+    const [numeroOrden, setNumeroOrden] = useState('')
+    
+    const comprador = {
+      nombre: 'Gaston',
+      apellido: 'Rodri',
+      email: 'tonga@tonga.com'
+    };
 
-   /*  const agregarAlCarrito = () => {
-      deleteItem();
-  } */
-  
+    const finalizarCompra = ()=>{
+      const ventasCollection = collection(db,"ventas");
+      addDoc(ventasCollection,{
+        comprador,
+        items:[{cart}],
+        total: total,
+        date: serverTimestamp()
+      })
+      .then(result=>{
+        setTrackingNumber(true);
+        setNumeroOrden(result.id);
+      }) 
+      .catch(e => {
+        console.log('todo mal');
+        console.log(e);
+      });
+      clear;
+    }  
+
+   /*  const actualizarStock = ()=>{
+      const updateStock = doc(db, "productos","KwnjSlyDslt1IneySzVr")
+      updateDoc(updateStock,{stock:100})
+    } */
 
     return (  
        <>
@@ -43,9 +74,15 @@ const Cart = () => {
              </tr>
              
            </table>
-
+           
+          
            <button onClick={clear}>Clear</button>
-
+           
+           { trackingNumber ? 
+            <h1>Tu codigo de orden es :{numeroOrden}</h1>
+            :
+            <button onClick={finalizarCompra}> Finalizar Compra</button>
+          }
 
         </div>  
 

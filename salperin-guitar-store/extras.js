@@ -36,3 +36,17 @@ const obtenerProductos = new Promise((resolve, reject)=>{
         })
       }, [id])
  */
+
+ /*      useEffect(() => {
+        getDocs(productCollection)
+        .then((result) => {  
+        const listProducts =result.docs.map(item =>{
+          return {
+            ...item.data(),
+            id: item.id
+          }
+        })  
+        console.log(listProducts)
+        setProductos(listProducts)
+        })
+      }, [id])  */

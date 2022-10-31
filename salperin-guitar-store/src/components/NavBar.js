@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import '../styles/navbar.css';
 import logo from '../img/logo.png';
 
@@ -9,15 +9,37 @@ import { faUser} from'@fortawesome/free-solid-svg-icons';
 
 import { CartWidget } from "../elements/cartWidget";
 
+import { db } from "../firebase/firebaseConfig";
+import {getDocs, collection} from "firebase/firestore";
+
 
 const NavBar = ({nombreUsuario}) => {
-   
-   const categorias = [
+  
+  const [categorias, setCategorias] = useState([])
+  
+  useEffect(() => {
+    
+    const categoriasCollection = collection(db, 'categorias');
+    
+    getDocs(categoriasCollection)
+    .then((result) => {
+    const listaCategorias = result.docs.map(categoria =>{
+      return {
+        ...categoria.data(),
+       /*  id: categoria.id */
+      }
+    })  
+    console.log(listaCategorias)
+    setCategorias(listaCategorias)
+    })
+  }, []) 
+
+ /*   const categorias = [
       {nombreCategoria:"Guitarras", id: 1, ruta:"/listado-productos/guitarras"},
       {nombreCategoria:"Bajos", id: 2, ruta: "/listado-productos/bajos"},
       {nombreCategoria:"Sonido", id: 3, ruta: "/listado-productos/sonido"},
       {nombreCategoria:"Accesorios", id: 4, ruta: "/listado-productos/accesorios"},
-   ]
+   ] */
 
    return (
 
@@ -31,7 +53,7 @@ const NavBar = ({nombreUsuario}) => {
            <ul>
              {/* Lo pongo en lista porque va a ser menu desplegable */}
              {categorias.map((categoria) => {
-               return <li key={categoria.id}><Link to={categoria.ruta} className="link" >{categoria.nombreCategoria}</Link></li>
+               return <li key={categoria.id}><Link to={categoria.ruta} className="link" >{categoria.nombre}</Link></li>
              })} 
            </ul> 
         </nav>

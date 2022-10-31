@@ -1,23 +1,28 @@
 
 
-26/10 diseño carrito
 
-26/10 firebase
+Bugs No se actualiza total en carrito
 
-Pregunta
+check - agrego base de datos pero no toma bien el id
 
-No se actualiza total en carrito
 
-agrego base de datos pero no toma bien el id
+agregar carrito OK
+agregar categoria OK
+
+
 como agregar fotos
 
-como hacer query categoria
+agregar formulario para agregar productos
+actualizar stock
+
+Filtros / SearchBar
+Agregar Usuarios
+
+Agregar comentarios/rating
+
+Mobile
 
 
-
--Agregar Base Productos firebase
--Agregar Carrito firebase
--Agregar Formulario Agregar Productos
 
 Asides:
 

@@ -6,10 +6,10 @@ import ItemList from "./ItemList";
 import ItemListFilter from "./Filtros"; 
 
 import { db } from "../../../firebase/firebaseConfig";
-import {getDocs, collection, query, where} from "firebase/firestore"
+import {getDocs, collection} from "firebase/firestore"
 
 
-const productos = [
+/* const productos = [
   {id:0, nombre: 'Gibson Les Paul', precio: 10000, categoria: 'guitarras', stock: 2, rating:3.5 },
   {id:1, nombre: 'Fender Telescaster', precio: 13000, categoria: 'guitarras', stock: 3, rating: 4.5 },
   {id:2, nombre: 'Bajo Musicman', precio: 8000, categoria: 'bajos', stock: 1, rating: 4  },
@@ -26,29 +26,39 @@ const obtenerProductos = new Promise((resolve, reject)=>{
   }, 2000);
   //reject("ocurrio un error en la promesa")
 }) 
-
+ */
 const ItemListConteiner = () => {
     
     const [productos, setProductos] = useState([]);
 
-    const {id} = useParams(); 
+    const {categoriaBuscada} = useParams(); 
 
     const productCollection = collection(db, 'productos');
         
-    /* useEffect(() => {
+     useEffect(() => {
       getDocs(productCollection)
-      .then((result) => {
-      const listProducts =result.docs.map(item =>{
+      .then((result) => {  
+      const listProducts = result.docs.map(item =>{
         return {
           ...item.data(),
           id: item.id
         }
-      })  
-      setProductos(listProducts)
       })
-    }, [id]) */
+        if(!categoriaBuscada){
+          setProductos(listProducts)
+         } else {
+          const filtrado = listProducts.filter(producto => producto.categoria === categoriaBuscada);
+          console.log(filtrado)
+          setProductos(filtrado)  
+         }
+      })
+      .catch((error)=>{
+        console.log("salio todo mal");
+        console.log(error);
+      })
+    }, [categoriaBuscada]) 
 
-    useEffect(() => {
+   /*  useEffect(() => {
       obtenerProductos
       .then((data)=>{
          if(!id){
@@ -63,7 +73,7 @@ const ItemListConteiner = () => {
         console.log(error);
       })
     }, [id])
-    
+     */
     
     return ( 
         
