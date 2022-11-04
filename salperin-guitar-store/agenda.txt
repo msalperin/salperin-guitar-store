@@ -8,15 +8,21 @@ check - agrego base de datos pero no toma bien el id
 
 agregar carrito OK
 agregar categoria OK
+actualizar stock OK
 
 
 como agregar fotos
-
 agregar formulario para agregar productos
-actualizar stock
+#dar estilo a formularios
+
+agregar Usuarios
+user auth
+
+agregar visual ticket
+
+local storage
 
 Filtros / SearchBar
-Agregar Usuarios
 
 Agregar comentarios/rating
 

@@ -7,9 +7,10 @@ header {
     flex-direction: row;
     max-height: 200px;
     font-weight: bold;
-    background-image: url('../img/1117.jpg');
-    background-position: center;
-    background-size: 1500px;
+    background-image: url('../img/waves1.svg');
+    background-position: center  ;
+    background-size: 100%;
+   
 }
 
 /* logo */
@@ -41,15 +42,14 @@ nav ul {
     flex-direction: row; 
     justify-content: space-around;
     margin: auto;
-    background-color: black;
-    border-radius: 10px;
+    background-color: #000e12;
+    border-radius: 15px;
     
 }
 
 nav ul li{
     list-style: none;
     margin-left: 2%;    
-  
     padding: 10px;
     border-radius: 5px;
     
@@ -63,7 +63,7 @@ nav ul li{
 .link:hover {
     text-decoration: none;
     border-bottom: 2px solid white;
-   
+
 }
 
 
@@ -79,8 +79,7 @@ nav ul li{
     flex-direction: row;
     margin: auto;
     margin-right: 10%;
-    background-color: black;
-    
+    background-color: #000e12;
 }
 
 .bienvenida-usuario{
@@ -91,12 +90,12 @@ nav ul li{
 
 .estilo-carrito{
     color: white;
-    font-size: 30px;
+    font-size: 22px;
 
 }
 .estilo-usuario{
     color: white;
-    font-size: 30px;
+    font-size: 22px;
 }
 
 

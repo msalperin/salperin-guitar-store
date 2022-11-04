@@ -14,6 +14,7 @@ const Cart = () => {
     const [trackingNumber, setTrackingNumber] = useState(false);
     const [numeroOrden, setNumeroOrden] = useState('')
     
+    /* Agregar Formulario */
     const comprador = {
       nombre: 'Gaston',
       apellido: 'Rodri',
@@ -36,7 +37,7 @@ const Cart = () => {
         console.log('todo mal');
         console.log(e);
       });
-      clear;
+     /*  clear; */
     }  
 
    /*  const actualizarStock = ()=>{
@@ -65,23 +66,23 @@ const Cart = () => {
                 <td>{item.precio}</td>
                 <td>{item.cantidad} </td>
                 <td>{item.cantidad*item.precio}</td>
-                <td> <button onClick={() => deleteItem(item.id) }>Eliminar</button> </td>
+                <td> <button className="boton-accion" onClick={() => deleteItem(item.id) }>Eliminar</button> </td>
             </tr>  
            })}
              <tr>
                <td colSpan="3">Total:</td>
-               <td>{total}</td>
+               <td className="total">$ {total}</td>
              </tr>
              
            </table>
            
           
-           <button onClick={clear}>Clear</button>
+           <button className="boton-accion" onClick={clear}>Clear</button>
            
            { trackingNumber ? 
             <h1>Tu codigo de orden es :{numeroOrden}</h1>
             :
-            <button onClick={finalizarCompra}> Finalizar Compra</button>
+            <button className="boton-accion"  onClick={finalizarCompra}> Finalizar Compra</button>
           }
 
         </div>  

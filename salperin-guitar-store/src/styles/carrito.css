@@ -8,11 +8,13 @@
 .table-carrito {
     margin-top: 10px;
     width: 90%;
-    border: 1px solid salmon;
+
 }
 
 table tr th {
     border: 2px solid grey;
+    color: white;
+    background-color: #000e12;
     padding: 5px;
     text-align: center;
 }
@@ -21,4 +23,16 @@ td {
     border: 1px solid grey;
     text-align: center;
     padding: 10px;
+}
+
+.total {
+    color: white;
+    background-color: #000e12;
+}
+
+.boton-accion {
+    color: white;
+    background-color: #000e12;
+    padding: 8px;
+    border-radius: 10px;
 }

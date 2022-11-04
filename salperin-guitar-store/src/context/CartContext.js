@@ -32,8 +32,12 @@ export const CustomProvider = ({children}) => {
     }
 
     const deleteItem = (id) => {
-        setCart(cart.filter((item) => item.id !== id));
-    }
+      const productoABorrar = cart.find((item)=>item.id === id);
+
+      setCart(cart.filter((item) => item.id !== id)); 
+      setQty(qty - productoABorrar.cantidad);
+      setTotal(total - ( productoABorrar.cantidad * productoABorrar.precio)) 
+    } 
     
     const clear = () => {
         setCart([]);

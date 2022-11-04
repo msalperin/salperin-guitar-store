@@ -13,7 +13,7 @@ import { db } from "../firebase/firebaseConfig";
 import {getDocs, collection} from "firebase/firestore";
 
 
-const NavBar = ({nombreUsuario}) => {
+const NavBar = () => {
   
   const [categorias, setCategorias] = useState([])
   
@@ -29,7 +29,7 @@ const NavBar = ({nombreUsuario}) => {
        /*  id: categoria.id */
       }
     })  
-    console.log(listaCategorias)
+  
     setCategorias(listaCategorias)
     })
   }, []) 
@@ -61,7 +61,7 @@ const NavBar = ({nombreUsuario}) => {
    
         <div className="contenedor-carrito">
             {/*  Si el usuario logeado se muestra bienvenida sino usuario*/}
-           <h2 className="bienvenida-usuario">Hola {nombreUsuario}</h2>  
+            <h2 className="bienvenida-usuario">Buscador</h2>
            <><FontAwesomeIcon className="estilo-usuario" icon={faUser}/></>
            
            <CartWidget/>
