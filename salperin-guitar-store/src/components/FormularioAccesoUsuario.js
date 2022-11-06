@@ -1,5 +1,6 @@
 
 import React, {useState} from "react";
+import formulario from '../styles/formulario.css';
 
 import {auth} from '../firebase/firebaseConfig';
 import { useNavigate } from "react-router-dom";
@@ -84,10 +85,11 @@ const FormularioAccesoUsuario = () => {
     
 
     return (
-        <>
-        
 
-        <h1>Acceso Usuario</h1>
+        <div className="contenedor-formulario">
+        
+          
+        <h1 className="titulo-formulario">Acceder cuenta</h1>
 
         {estadoAlerta ? 
            <h1>{alerta.tipo} {alerta.mensaje}</h1>
@@ -98,7 +100,8 @@ const FormularioAccesoUsuario = () => {
 
 
         <form onSubmit={handleSubmit}>
-          
+         <div className="centrado-formulario">
+        <label for="email">Ingrese su mail:</label>  
             <input 
                type="email"
                name="email"
@@ -107,6 +110,8 @@ const FormularioAccesoUsuario = () => {
                onChange={handleChange}
                >
             </input>
+            <br></br>
+        <label for="password">Ingrese su password:</label>      
             <input 
                type="password"
                name="password"
@@ -115,11 +120,15 @@ const FormularioAccesoUsuario = () => {
                onChange={handleChange}
                >
             </input>
+            <br></br>
+            </div>
             
-            <button>Acceder a cuenta</button>
+            <button className="botones-centrado">Acceder a cuenta</button>
+        
+       
         </form>
 
-        </>
+        </div>
       );
 }
  

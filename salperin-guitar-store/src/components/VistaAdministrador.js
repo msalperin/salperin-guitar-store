@@ -33,12 +33,16 @@ const VistaAdministrador = () => {
         addDoc(productosCollection,{
           nombre: ObjetoProductoNuevo.nombre,
           precio: parseInt(ObjetoProductoNuevo.precio),
-          imagen: ObjetoProductoNuevo.imagen
+          imagen: ObjetoProductoNuevo.imagen,
+          descripcion: ObjetoProductoNuevo.descripcion,
+          stock: parseInt(ObjetoProductoNuevo.stock),
+          categoria: ObjetoProductoNuevo.categoria
         }) 
         .catch(e => {
-          console.log('todo mal');
           console.log(e);
         }); 
+
+        alert('Producto agregado!')
     }
 
     return ( 

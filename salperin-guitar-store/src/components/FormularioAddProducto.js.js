@@ -2,36 +2,16 @@ import React, {useState} from "react";
 
 import { uploadFile } from "../firebase/firebaseConfig";
 
-import { db } from "../firebase/firebaseConfig";
-import {getDocs, collection} from "firebase/firestore";
+
 
 const FormularioAgregarProducto = ({productoNuevo,categorias}) => {
- 
-  const [productoAAgregar, setProductoAAgregar] = useState({});   
+   
   const [nombre, setNombre] = useState('');
   const [precio, setPrecio] = useState(0);
   const [descripcion, setDescripcion] = useState('');
   const [stock, setStock] = useState(0);
   const [categoria, setCategoria] = useState('')
-  /* capturando datos formulario   */
- /*  const datosIniciales = { 
-  nombre:'',
-  precio: 0,
-  descripcion: '',
-  stock: 0,
-  categoria:'',
-  url:'' 
-  } */
 
-/*   const [datos, setDatos] = useState({datosIniciales});   */
-  
-/*   const handleInputChange = e => {
-    const {name,value} = e.target;
-    setDatos({
-    
-      [name]: value
-    })
-  } */
 
   const handleInputChange = (e) => { 
     switch(e.target.name){
@@ -62,24 +42,6 @@ const FormularioAgregarProducto = ({productoNuevo,categorias}) => {
     const handleSubmit = async(e) => {
         e.preventDefault();
 
-    /*     try {
-            const result = await uploadFile(file)
-            setUrlArchivo(result);
-            setProductoAAgregar({
-              nombre: nombre,
-              precio: precio,
-              descripcion: descripcion,
-              stock: stock,
-              categoria: categoria,
-              url: urlArchivo
-            });
-            
-        } catch (error) {
-            console.log(error);
-        }
-
-        productoNuevo(productoAAgregar) */
-        
         try {
           const result = await uploadFile(file);
           setUrlArchivo(result);
@@ -91,22 +53,9 @@ const FormularioAgregarProducto = ({productoNuevo,categorias}) => {
             categoria: categoria,
             imagen: result
           })
-          /* setProductoAAgregar({
-          nombre: nombre,
-          precio: precio,
-          descripcion: descripcion,
-          stock: stock,
-          categoria: categoria,
-          url: result
-          })
-        */
           } catch (error) {
           console.log(error);
           }
-
-        
-   
-
     }
 
    
@@ -144,12 +93,6 @@ const FormularioAgregarProducto = ({productoNuevo,categorias}) => {
             <button>Submit</button> 
         </form>
         
-        
-        { urlArchivo === undefined ? 
-          <></>
-        :
-          <h1>{urlArchivo}</h1>  
-        }
 
         </>
         

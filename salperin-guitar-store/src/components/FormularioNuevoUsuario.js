@@ -1,6 +1,6 @@
 
 import React, {useState} from "react";
-
+import formulario from '../styles/formulario.css';
 import { db } from "../firebase/firebaseConfig";
 import { collection, addDoc} from "firebase/firestore";
 
@@ -126,10 +126,9 @@ const FormularioNuevoUsuario = () => {
     
 
     return (
-        <>
-        <h1>Acceso Usuario</h1>
-
-        <h1>Crear Cuenta</h1>
+        <div className="contenedor-formulario" >
+        
+        <h1 className="titulo-formulario">Crear Cuenta</h1>
 
         {estadoAlerta ? 
            <h1>{alerta.tipo} {alerta.mensaje}</h1>
@@ -140,6 +139,7 @@ const FormularioNuevoUsuario = () => {
 
 
         <form onSubmit={handleSubmit}>
+        <label for="nombre">Ingrese su Nombre:</label>   
            <input 
                type="nombre"
                name="nombre"
@@ -148,6 +148,7 @@ const FormularioNuevoUsuario = () => {
                onChange={handleChange}
                >
             </input>
+        <label for="apellido">Ingrese su Apellido:</label>    
             <input 
                type="apellido"
                name="apellido"
@@ -156,6 +157,7 @@ const FormularioNuevoUsuario = () => {
                onChange={handleChange}
                >
             </input>
+        <label for="email">Ingrese su email:</label>    
             <input 
                type="email"
                name="email"
@@ -164,6 +166,7 @@ const FormularioNuevoUsuario = () => {
                onChange={handleChange}
                >
             </input>
+        <label for="password">Ingrese su password:</label>    
             <input 
                type="password"
                name="password"
@@ -172,6 +175,7 @@ const FormularioNuevoUsuario = () => {
                onChange={handleChange}
                >
             </input>
+        <label for="nombre">Reingrese su password:</label>    
             <input 
                type="password"
                name="password2"
@@ -180,13 +184,13 @@ const FormularioNuevoUsuario = () => {
                onChange={handleChange}
                >
             </input>
-            <button>Crear cuenta</button>
+            <button className="botones">Crear cuenta</button>
         </form>
 
 
 
 
-        </>
+        </div>
       );
 }
  

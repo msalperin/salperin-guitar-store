@@ -50,3 +50,12 @@ const obtenerProductos = new Promise((resolve, reject)=>{
         setProductos(listProducts)
         })
       }, [id])  */
+
+  /*     )
+        if(!categoriaBuscada){
+          setProductos(listProducts)
+         } else {
+          const filtrado = listProducts.filter(producto => producto.categoria === categoriaBuscada);
+          setProductos(filtrado)  
+         } 
+      }) */

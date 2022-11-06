@@ -1,5 +1,6 @@
 
 import React from "react";
+import formulario from '../styles/formulario.css'
 
 import FormularioNuevoUsuario from "./FormularioNuevoUsuario";
 import FormularioAccesoUsuario from "./FormularioAccesoUsuario";
@@ -7,11 +8,11 @@ import FormularioAccesoUsuario from "./FormularioAccesoUsuario";
 const AccesoUsuarios = () => {
     return (
         <>
-        <h1> Acceso usuarios</h1>
 
+        <div className="contenedor-formularios">   
         <FormularioNuevoUsuario></FormularioNuevoUsuario>
         <FormularioAccesoUsuario></FormularioAccesoUsuario>
-
+        </div>
         </>
       );
 }

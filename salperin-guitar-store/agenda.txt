@@ -11,18 +11,18 @@ agregar categoria OK
 actualizar stock OK
 
 
-como agregar fotos
-agregar formulario para agregar productos
+como agregar fotos OK
+agregar formulario para agregar productos OK
 #dar estilo a formularios
 
-agregar Usuarios
-user auth
+agregar Usuarios OK
+user auth OK
 
-agregar visual ticket
+Traer que usuario esta o local storage
 
-local storage
 
 Filtros / SearchBar
+agregar visual ticket
 
 Agregar comentarios/rating
 

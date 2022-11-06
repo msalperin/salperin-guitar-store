@@ -10,10 +10,21 @@ const ItemList = ({productos}) => {
            
            <h1 className="titulo-listado">Listado de Productos: Categoria</h1>
 
+          
+
+          { productos.length === 0 ?
+           <h1>No se encontraron productos</h1> 
+           :
+           productos.map((producto)=> {
+            return <Item key={producto.id} producto={producto}/>
+           })
+
+          }
+{/* 
            { productos.map((producto)=> {
              return <Item key={producto.id} producto={producto}/>
             })
-          }
+          } */}
 
         </div>
 

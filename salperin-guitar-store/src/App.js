@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { browserLocalPersistence } from 'firebase/auth';
 
 
 import NavBar from './components/NavBar';
@@ -12,6 +11,7 @@ import VistaAdministrador from './components/VistaAdministrador';
 import AccesoUsuario from './components/AccesoUsuario';
 
 import { CustomProvider } from './context/CartContext';
+import { ProductProvider} from './context/ProductoContext'; 
 
 
 
@@ -21,13 +21,16 @@ function App() {
   return (
     
     <CustomProvider>
+    <ProductProvider>
+
     <BrowserRouter>
        
        <NavBar></NavBar>
        
        <Routes>
           <Route path="/" element={<ItemListConteiner/>}/>
-          <Route path="/listado-productos/:categoriaBuscada" element={<ItemListConteiner />}/>  
+          <Route path="/listado-productos/:categoriaBuscada" element={<ItemListConteiner />}/>
+          <Route path="/busqueda/:searchBar" element={<ItemListConteiner />}/>  
           <Route path="/detalle-producto/:id" element={<ItemDetailConteiner />}/> 
           <Route path='/cart' element={<Cart/>} />
           <Route path='/vista-administrador' element={<VistaAdministrador />}/> 
@@ -36,7 +39,8 @@ function App() {
        </Routes>
     
     </BrowserRouter>
-
+    
+    </ProductProvider>  
     </CustomProvider>
   );
 }
