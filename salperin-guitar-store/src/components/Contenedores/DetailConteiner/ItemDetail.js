@@ -1,6 +1,6 @@
 import React, {useState, useContext} from "react";
-import itemdetail from "../../../styles/itemdetail.css";
-import FotoProducto from '../../../img/LesPaul.jpg';
+import "../../../styles/itemdetail.css";
+
 import ItemCount from "./ItemCount";
 
 import { Context } from "../../../context/CartContext";
@@ -27,7 +27,7 @@ const ItemDetail = ({producto}) => {
        <div className="conteiner-detail">
              
             <div className="conteiner-photo-detail">
-             <img src={FotoProducto} alt='foto-detalle'></img>
+             <img src={producto.imagen} alt='foto-detalle'></img>
             </div> 
            
             <div className="conteiner-description-detail">
@@ -38,15 +38,20 @@ const ItemDetail = ({producto}) => {
               <h2>{producto.nombre}</h2>
               <h2>$ {producto.precio}</h2>
               <br></br>
-              <h2>Descripcion: Es una producto producto muy especial senti la magia en tus dedos toca como Jimi Hendrix y Yoda juntos.</h2>
+              <h2>{producto.descripcion}</h2>
                 
                <div>
                  {showItemCount ?    
                  <ItemCount stock={producto.stock} onAdd={onAdd}/>
                  :
-                 <Link to={'/cart'}>
-                    <button>Finalizar Compra</button>
+                 <>
+                 <Link to={'/cart'}> 
+                    <button className="boton-finalizar-compra">Finalizar Compra</button>
                  </Link>
+                 <Link to={'/'}> 
+                 <button className="boton-finalizar-compra">Seguir navegando</button>
+                 </Link>
+                 </>
                  }   
                </div>
                  

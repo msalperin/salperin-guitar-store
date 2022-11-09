@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
-import itemlist from "../../../styles/itemlist.css";
+import "../../../styles/itemlist.css";
+
 import { useParams } from "react-router-dom";
+
 
 import ItemList from "./ItemList";
 import ItemListFilter from "./Filtros"; 
@@ -11,8 +13,12 @@ import {getDocs, collection, query, where, onSnapshot} from "firebase/firestore"
 
 
 const ItemListConteiner = () => {
+
+   
+
     
     const [productos, setProductos] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const {categoriaBuscada} = useParams(); 
     const {searchBar} = useParams();
@@ -49,15 +55,33 @@ const ItemListConteiner = () => {
         console.log("salio todo mal");
         console.log(error);
       })
-    }, [categoriaBuscada]) 
+      .finally(() => {
+        setLoading(false);
+      });
+
+    }, [categoriaBuscada, searchBar]) 
     
     return ( 
         
         <div className="contenedor-listado">
+ 
 
-        <ItemListFilter></ItemListFilter>
+       <ItemListFilter></ItemListFilter>
+          
 
-        <ItemList productos={productos}/>
+        { loading ?
+           <>
+           <h1 className="cargando">Cargando productos!...</h1>
+
+           </>
+        :  
+          <>  
+          
+           <ItemList productos={productos}/>
+          </>
+        }
+
+       
 
         </div>
      

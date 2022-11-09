@@ -53,30 +53,3 @@ export const CustomProvider = ({children}) => {
         
 };
 
-/* 
-const getQuantityTotal = () =>{
-    let total = 0
-    cart.forEach( p => total = total + p.quantity)
-    return total
-    } */
-
-/* 
-    Si, eso creo que es lo mas complicado.
-
-Primero, te recomiendo crear una funcion llamada "isInCart" que recibe un id, y devuelve true or false de si esta o no esta (no te compliques mucho, hay un metodo de array que te va ayudar mucho... busca como funciona el "some")
-
-Una vez que resuelvas eso. tu additem debería quedar algo asi:
-const addItem = (producto,cantidad) =>{
-if(isInCart(producto.id)){
---> Aca va la logica de sumar la cantidad por que ya esta en el carrito
-}else{
---> Agrego al carrito por que no exite  (aca va lo que  ya tenes)
-}
-
-Fijate si con eso te pude ayudar, y cualquier  */
-
-     /*  setCart([...cart, {item,cantidad}])
-      setQty(qty + cantidad ) */
-     
-      /*  setCart(...cart, item);
-      setQty(cantidad); */  

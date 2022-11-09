@@ -1,6 +1,6 @@
 import React from "react";
-import itemlist from "../../../styles/itemlist.css";
-import ImagenLesPaul from "../../../img/LesPaul.jpg";
+import "../../../styles/itemlist.css";
+
 
 import { Link } from "react-router-dom";
 

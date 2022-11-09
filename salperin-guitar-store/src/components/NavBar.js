@@ -4,6 +4,7 @@ import logo from '../img/logo.png';
 import SearchBar from "./Contenedores/ListConteiner/SearchBar";
 
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser} from'@fortawesome/free-solid-svg-icons'; 
@@ -16,6 +17,8 @@ import {getDocs, collection} from "firebase/firestore";
 
 
 const NavBar = () => {
+
+  const {user} = useAuth()
   
   const [categorias, setCategorias] = useState([])
   
@@ -36,8 +39,6 @@ const NavBar = () => {
     })
   }, []) 
 
-   
-     
 
    return (
 
@@ -56,18 +57,28 @@ const NavBar = () => {
            </ul> 
         </nav>
         
-        <div>
-          <SearchBar></SearchBar>
-        </div>
-   
+        
+       
+        
         <div className="contenedor-carrito">
-            {/*  Si el usuario logeado se muestra bienvenida sino usuario*/}
-            {/* <h2 className="bienvenida-usuario"></h2> */}
-           <><FontAwesomeIcon className="estilo-usuario" icon={faUser}/></>
+
+           { user ? 
+            <Link className="estilo-perfil-usuario" to='/perfil-usuario'>
+            <h3 className="bienvenida-navbar">Hola {user.email}</h3>
+            <h4>Ir a mi perfil</h4>
+            </Link>
+            :
+            <></> 
+           }
+             
+           <Link to='/acceso-usuario'><FontAwesomeIcon className="estilo-usuario" icon={faUser}/></Link>
            
            <CartWidget/>
         
         </div>
+        <div className="contenedor-search-bar"> 
+           <SearchBar></SearchBar>
+          </div>
 
        </header>
 

@@ -1,8 +1,12 @@
-import React, {useState, useContext} from "react";
+import React, {useState} from "react";
+import '../../../styles/navbar.css';
 import { Link, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass} from'@fortawesome/free-solid-svg-icons'; 
 
 
 const SearchBar = () => {
+
 
     const navigate = useNavigate(); 
     const [busqueda, setBusqueda] = useState('')
@@ -21,10 +25,10 @@ const SearchBar = () => {
 
     return (  
       <>
-  
-      <form onSubmit={handleSubmit} >
-        <input type="text" name="busqueda" id="Busqueda"  value={busqueda} onChange={handleChange}    ></input>
-        <button>Buscar</button>
+
+      <form className="buscador-form" onSubmit={handleSubmit} >
+        <input className="buscador-input" type="text" name="busqueda" id="Busqueda" placeholder="Buscar!" value={busqueda} onChange={handleChange}    ></input>
+        <button className="buscador-button"> <FontAwesomeIcon className="lupa" icon={faMagnifyingGlass} /></button>
       </form>
       </>
 
@@ -34,4 +38,3 @@ const SearchBar = () => {
 export default SearchBar; 
 
 
-/* <Link to={`/busqueda/${busqueda}`}>Buscar</Link> */

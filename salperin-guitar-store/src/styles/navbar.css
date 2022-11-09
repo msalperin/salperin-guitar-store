@@ -16,23 +16,29 @@ header {
 /* logo */
 
 .link-logo{
-    width: 30%;
+    width: 12%;
+    margin-left: 4%;
+  
 }
 .header-logo{
-    width: 40%;
-    margin-left: 15%;
-    border-radius: 5px;   
+    width: 100%;
+    border-radius: 5px;  
+    
 }
 
 /* nav */
 
 nav {
-    width: 25%;
-    margin-left: -160px;
+    width: 35%;
+    
+    margin: auto;
+    margin-left: 20px; 
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: flex-start;
+    font-size: 16px;
+    
 }    
 
 nav ul {
@@ -43,13 +49,13 @@ nav ul {
     justify-content: space-around;
     margin: auto;
     background-color: #000e12;
-    border-radius: 15px;
+    border-radius: 8px;
     
 }
 
 nav ul li{
     list-style: none;
-    margin-left: 2%;    
+    margin-left: 3%;    
     padding: 10px;
     border-radius: 5px;
     
@@ -60,16 +66,42 @@ nav ul li{
     color: inherit;
 }
 
-.link:hover {
-    text-decoration: none;
-    border-bottom: 2px solid white;
 
-}
 
 
 /* usuario */
 
+.contenedor-search-bar{
+    position: relative;
+    width: 15%;
+    margin: auto;
+    margin-top: 5px;
+    margin-left: 0px;   
+    
+}
+.buscador-form {
+    margin: auto;
+    width: 100%;
+    padding: 5px;
+}
 
+.buscador-input{
+    width:75%;
+    margin-top: 0px;
+    height: 20px;
+    border: none;  
+}
+
+.buscador-button {
+    background-color: #000e12;
+}
+.lupa{
+    color: white; 
+    background-color: #000e12; 
+   
+    font-size: 13px;
+    border: none;
+}
 
 /* login carrito */
 
@@ -77,26 +109,39 @@ nav ul li{
     width: 15%;
     display: flex;
     flex-direction: row;
+    justify-content: end;
     margin: auto;
-    margin-right: 10%;
+    margin-right: -180px;
+   /*  margin-left: ; */
     background-color: #000e12;
+  
+       
 }
 
-.bienvenida-usuario{
-    margin: auto;
-    font-size: inherit;
-   
-}
 
 .estilo-carrito{
     color: white;
     font-size: 22px;
 
 }
+.cantidad {
+    color: white;
+    font-size: 12px;
+    position: relative;
+    margin-left: 25px ;
+    margin-top: -31px;
+}
 .estilo-usuario{
     color: white;
     font-size: 22px;
 }
 
+.estilo-perfil-usuario {
+    color: white;
+    margin-right: 2%;
+}
+.bienvenida-navbar {
+    font-size: 13px;
+}
 
 

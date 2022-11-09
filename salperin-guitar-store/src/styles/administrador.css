@@ -1,0 +1,24 @@
+.contenedor-agregar-producto {
+    width: 60%;
+    margin: auto;
+    margin-top: 25px;
+    border: 1px solid grey;
+}
+
+.titulo-agregar-producto{
+    margin-left: 35px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+   
+    
+}
+
+.boton-submit {
+    background-color: #000e12;
+    color: white;
+    padding: 10px;
+    margin-left: 45%;
+    margin-top: 3%;
+    width: 10%;
+}
+

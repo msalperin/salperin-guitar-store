@@ -1,6 +1,6 @@
 
 import React, {useState} from "react";
-import formulario from '../styles/formulario.css';
+import '../styles/formulario.css';
 import { db } from "../firebase/firebaseConfig";
 import { collection, addDoc} from "firebase/firestore";
 
@@ -50,7 +50,6 @@ const FormularioNuevoUsuario = () => {
         cambiarEstadoAlerta(false);
         cambiarAlerta({}); 
         
-          // Comprobamos del lado del cliente que el correo sea valido.
         const expresionRegular = /[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/;
           
         if( !expresionRegular.test(correo) ){
@@ -80,8 +79,6 @@ const FormularioNuevoUsuario = () => {
             })
               return;
         }
-
-
 
         try {
            
@@ -139,7 +136,7 @@ const FormularioNuevoUsuario = () => {
 
 
         <form onSubmit={handleSubmit}>
-        <label for="nombre">Ingrese su Nombre:</label>   
+        <label htmlFor="nombre">Ingrese su Nombre:</label>   
            <input 
                type="nombre"
                name="nombre"
@@ -148,7 +145,7 @@ const FormularioNuevoUsuario = () => {
                onChange={handleChange}
                >
             </input>
-        <label for="apellido">Ingrese su Apellido:</label>    
+        <label htmlFor="apellido">Ingrese su Apellido:</label>    
             <input 
                type="apellido"
                name="apellido"
@@ -157,7 +154,7 @@ const FormularioNuevoUsuario = () => {
                onChange={handleChange}
                >
             </input>
-        <label for="email">Ingrese su email:</label>    
+        <label htmlFor="email">Ingrese su email:</label>    
             <input 
                type="email"
                name="email"
@@ -166,7 +163,7 @@ const FormularioNuevoUsuario = () => {
                onChange={handleChange}
                >
             </input>
-        <label for="password">Ingrese su password:</label>    
+        <label htmlFor="password">Ingrese su password:</label>    
             <input 
                type="password"
                name="password"
@@ -175,7 +172,7 @@ const FormularioNuevoUsuario = () => {
                onChange={handleChange}
                >
             </input>
-        <label for="nombre">Reingrese su password:</label>    
+        <label htmlFor="nombre">Reingrese su password:</label>    
             <input 
                type="password"
                name="password2"
@@ -186,7 +183,6 @@ const FormularioNuevoUsuario = () => {
             </input>
             <button className="botones">Crear cuenta</button>
         </form>
-
 
 
 

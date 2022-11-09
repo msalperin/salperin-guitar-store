@@ -1,5 +1,5 @@
 import React from "react";
-import itemlist from "../../../styles/itemlist.css";
+import "../../../styles/itemlist.css";
 import Item from "./Item";
 
 const ItemList = ({productos}) => {
@@ -8,7 +8,7 @@ const ItemList = ({productos}) => {
 
         <div className="contenedor-items">
            
-           <h1 className="titulo-listado">Listado de Productos: Categoria</h1>
+           <h1 className="titulo-listado">Listado de Productos: </h1>
 
           
 
@@ -20,11 +20,6 @@ const ItemList = ({productos}) => {
            })
 
           }
-{/* 
-           { productos.map((producto)=> {
-             return <Item key={producto.id} producto={producto}/>
-            })
-          } */}
 
         </div>
 

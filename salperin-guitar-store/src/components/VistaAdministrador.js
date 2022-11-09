@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
-
+import { useNavigate } from "react-router-dom";
+import "../styles/administrador.css";
 import FormularioAgregarProducto from "./FormularioAddProducto.js.js";
 
 import { db } from "../firebase/firebaseConfig.js";
@@ -7,7 +8,8 @@ import { collection, getDocs, addDoc} from "firebase/firestore";
 
 const VistaAdministrador = () => {
     
-    const [categorias, setCategorias] = useState([])
+    const navigate = useNavigate();
+    const [categorias, setCategorias] = useState([]);
 
     useEffect(() => {
     
@@ -26,8 +28,7 @@ const VistaAdministrador = () => {
     }, []);
 
     const productoNuevo = (ObjetoProductoNuevo) => {
-        console.log(ObjetoProductoNuevo)
-        console.log(ObjetoProductoNuevo.precio)
+       
 
         const productosCollection = collection(db,"productos");
         addDoc(productosCollection,{
@@ -43,12 +44,16 @@ const VistaAdministrador = () => {
         }); 
 
         alert('Producto agregado!')
+        navigate('/')
+
     }
 
     return ( 
        <>
-        <h1>Formulario Agregar Producto:</h1> 
+        <div className="contenedor-agregar-producto">
+        <h1 className="titulo-agregar-producto">Formulario Agregar Producto:</h1> 
         <FormularioAgregarProducto productoNuevo={productoNuevo} categorias={categorias}></FormularioAgregarProducto>
+        </div> 
        </> 
     )    
      

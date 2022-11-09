@@ -9,10 +9,6 @@ const FormularioComprador = ({setComprador}) => {
     const [email, setEmail] = useState('');
     const [email2, setEmail2] = useState('');    
     const [telefono, setTelefono] = useState(0);
-    /* const [alerta, setAlerta] = useState({})
-    const [estadoAlerta, setEstadoAlerta] = useState(false); */
-
-    /* const [comprador, setComprador] = useState({}); */
     
     const handleChange = (e) => { 
         switch(e.target.name){
@@ -39,42 +35,15 @@ const FormularioComprador = ({setComprador}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if(email !== email2){
-           /* setEstadoAlerta(true)  */
+        if(email !== email2){     
            return alert('Los mails deben coincidir')
-
         } 
         if (nombre === '' || apellido === '' || email === '' || email2 === '' || telefono ===''){
-            /* setEstadoAlerta(true)  */
             return alert('Los campos deben estar completos') 
         } 
 
         setComprador({ nombre: nombre })
 
-      /*   if(nombre === '' || apellido === '' || email === '' || email2 === '' || telefono ===''){
-            setEstadoAlerta(true);
-            setAlerta({
-               mensaje:'Los campos deben estar completos'
-            })
-             return;
-        } */
-
-      /*  try{ 
-           if(alerta=== false){
-
-            setComprador({
-                nombre: nombre,
-                apellido: apellido,
-                email: email,
-                telefono: telefono,
-
-           }) }
-        } catch(error) {
-            console.log(error)
-        }
-        */
-      /*  console.log(comprador)     
-           */
     }
 
     
@@ -125,13 +94,6 @@ const FormularioComprador = ({setComprador}) => {
             </input>
             <button>Finalizar Compra</button>
         </form>
-
-   {/*      {estadoAlerta ?
-          <h3>{alerta}</h3> 
-        :
-          <></>
-        }  
-    */}
 
       </>
     );

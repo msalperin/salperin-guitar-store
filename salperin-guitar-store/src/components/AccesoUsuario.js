@@ -1,6 +1,6 @@
 
 import React from "react";
-import formulario from '../styles/formulario.css'
+import '../styles/formulario.css'
 
 import FormularioNuevoUsuario from "./FormularioNuevoUsuario";
 import FormularioAccesoUsuario from "./FormularioAccesoUsuario";

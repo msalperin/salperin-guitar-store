@@ -17,7 +17,8 @@
 }
 
 .conteiner-photo-detail img{
-    margin-left: 30%;
+    margin-left: 10%;
+    max-height: 500px;
    
 }
 
@@ -61,4 +62,13 @@
  color: white;
  background-color: black;
  border: 1px solid rgb(255, 255, 255);
+}
+
+.boton-finalizar-compra{
+    color: white;
+    background-color: #000e12;
+    padding: 5px;
+    margin-left: 40%;
+    margin-top: 2%;
+    width: 25%;
 }

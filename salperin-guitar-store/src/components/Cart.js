@@ -1,10 +1,10 @@
 import React, {useContext, useState} from "react";
-import carrito from "../styles/carrito.css";
+import "../styles/carrito.css";
 
 import { Context } from "../context/CartContext";
 
 import { db } from "../firebase/firebaseConfig";
-import { collection, addDoc, serverTimestamp, doc, updateDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp} from "firebase/firestore";
 
 
 const Cart = () => {
@@ -15,6 +15,7 @@ const Cart = () => {
     const [numeroOrden, setNumeroOrden] = useState('')
     
     const [comprador, setComprador] = useState({})
+    const [hayDatosCompra, setHayDatosCompra] = useState(false)
 
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
@@ -43,23 +44,16 @@ const Cart = () => {
               break;
           }    
   }
-    /* Agregar Formulario */
-   /*  const comprador = {
-      nombre: 'Gaston',
-      apellido: 'Rodri',
-      email: 'tonga@tonga.com'
-    };  */
+
 
     const handleSubmit = (e) => {
       e.preventDefault();
 
-      if(email !== email2){
-         /* setEstadoAlerta(true)  */
+      if(email !== email2){       
          return alert('Los mails deben coincidir')
 
       } 
       if (nombre === '' || apellido === '' || email === '' || email2 === '' || telefono ===''){
-          /* setEstadoAlerta(true)  */
           return alert('Los campos deben estar completos') 
       } 
 
@@ -68,12 +62,21 @@ const Cart = () => {
         apellido: apellido,
         email: email,
         telefono: telefono
-      }) 
+      }); 
+
+      setHayDatosCompra(true);
+
+      alert('Datos enviados correctamente. Puede proseguir con la compra!.')
     }
 
     const finalizarCompra = (e)=>{
       e.preventDefault()
-      
+    
+    if( total === 0) {
+      return alert('Complete sus productos');
+    } else if(hayDatosCompra === false){ 
+      return alert('Ingrese sus datos'); 
+    } else {   
       const ventasCollection = collection(db,"ventas");
       addDoc(ventasCollection,{
         comprador,
@@ -90,7 +93,8 @@ const Cart = () => {
         console.log(e);
       }); 
      /*  clear; */
-    }  
+    } 
+  }  
 
    /*  const actualizarStock = ()=>{
       const updateStock = doc(db, "productos","KwnjSlyDslt1IneySzVr")
@@ -105,6 +109,7 @@ const Cart = () => {
            <h1>Tu Carrito:</h1>
 
            <table className="table-carrito">
+             <thead>
               <tr>
                 <th>Nombre del producto</th>
                 <th>Precio</th>
@@ -112,6 +117,8 @@ const Cart = () => {
                 <th>SubTotal</th>
                 <th>Accion</th>
               </tr>
+             </thead>
+             <tbody>
            {cart.map((item) => {
               return <tr key={item.id}>
                 <td>{item.nombre}</td>
@@ -121,18 +128,28 @@ const Cart = () => {
                 <td> <button className="boton-accion" onClick={() => deleteItem(item.id) }>Eliminar</button> </td>
                      </tr>  
            })}
+           </tbody> 
+           <tfoot>
              <tr>
                <td colSpan="3">Total:</td>
                <td className="total">$ {total}</td>
+               <td>  <button className="boton-accion" onClick={clear}>Clear Cart</button></td>
              </tr>
+            </tfoot>
              
            </table>
+        
+        </div>   
+      
            
-          
-           <button className="boton-accion" onClick={clear}>Clear</button>
+      <div className="contenedor-finalizar-compra">
 
+          
+        <div className="formulario-finalizar-compra">
+          <h3>Ingrese sus datos para finalizar la compra!:</h3>
            <form onSubmit={handleSubmit}>
-           <input 
+            <label htmlFor="nombre">Ingrese su nombre:</label>
+            <input 
                type="text"
                name="nombre"
                placeholder="Ingrese Nombre"
@@ -140,6 +157,7 @@ const Cart = () => {
                onChange={handleChange}
                >
             </input>
+            <label htmlFor="apellido">Ingrese su apellido:</label>
             <input 
                type="text"
                name="apellido"
@@ -148,6 +166,7 @@ const Cart = () => {
                onChange={handleChange}
                >
             </input>
+            <label htmlFor="email">Ingrese su email:</label>
             <input 
                type="email"
                name="email"
@@ -156,6 +175,7 @@ const Cart = () => {
                onChange={handleChange}
                >
             </input>
+            <label htmlFor="email2">Re-Ingrese su email:</label>
             <input 
                type="email"
                name="email2"
@@ -164,6 +184,7 @@ const Cart = () => {
                onChange={handleChange}
                >
             </input>
+            <label htmlFor="telefono">Ingrese su telefono:</label>
             <input 
                type="number"
                name="telefono"
@@ -172,18 +193,20 @@ const Cart = () => {
                onChange={handleChange}
                >
             </input>
-            <button>Finalizar Compra</button>
+            <button className="boton-accion-form">Enviar Datos</button>
            </form>
+        </div>    
 
           
-           
+        <div className="finalizar-compra"> 
            { trackingNumber ? 
-            <h1>Hola {comprador.nombre} Tu codigo de orden es :{numeroOrden}</h1>
+            <h3 className="confirmacion-compra" >Hola {comprador.nombre}!. Gracias por tu compra. Tu codigo de orden es :{numeroOrden}</h3>
             :
-            <button className="boton-accion"  onClick={finalizarCompra} > Finalizar Compra</button>
+            <button className="boton-accion-finalizar-compra"  onClick={finalizarCompra} > Finalizar Compra</button>
           }
+        </div>
 
-        </div>  
+      </div>  
 
        </> 
     )

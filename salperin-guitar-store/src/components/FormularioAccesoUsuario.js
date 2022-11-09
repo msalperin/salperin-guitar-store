@@ -1,10 +1,11 @@
 
 import React, {useState} from "react";
-import formulario from '../styles/formulario.css';
+import '../styles/formulario.css';
 
 import {auth} from '../firebase/firebaseConfig';
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
+
 
 const FormularioAccesoUsuario = () => {
     
@@ -30,7 +31,6 @@ const FormularioAccesoUsuario = () => {
         cambiarEstadoAlerta(false);
         cambiarAlerta({}); 
         
-          // Comprobamos del lado del cliente que el correo sea valido.
         const expresionRegular = /[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/;
           
         if( !expresionRegular.test(correo) ){
@@ -54,7 +54,7 @@ const FormularioAccesoUsuario = () => {
         
 
         try {
-			await signInWithEmailAndPassword(auth,correo, password);
+            await signInWithEmailAndPassword(auth,correo, password);
          navigate('/');
          
          }catch(error) {
@@ -101,7 +101,7 @@ const FormularioAccesoUsuario = () => {
 
         <form onSubmit={handleSubmit}>
          <div className="centrado-formulario">
-        <label for="email">Ingrese su mail:</label>  
+        <label htmlFor="email">Ingrese su mail:</label>  
             <input 
                type="email"
                name="email"
@@ -111,7 +111,7 @@ const FormularioAccesoUsuario = () => {
                >
             </input>
             <br></br>
-        <label for="password">Ingrese su password:</label>      
+        <label htmlFor="password">Ingrese su password:</label>      
             <input 
                type="password"
                name="password"

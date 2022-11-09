@@ -18,7 +18,7 @@ export const CartWidget = () => {
         <>
         <Link to="/cart">
         <FontAwesomeIcon className="estilo-carrito" icon={faCartShopping} />
-        <div>{qty}</div>
+        <div className="cantidad">{qty}</div>
         </Link>
         </>
         :
