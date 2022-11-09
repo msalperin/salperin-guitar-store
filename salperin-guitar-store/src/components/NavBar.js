@@ -76,11 +76,22 @@ const NavBar = () => {
            <CartWidget/>
         
         </div>
+
+        
         <div className="contenedor-search-bar"> 
            <SearchBar></SearchBar>
-          </div>
+        </div>
+        
+        
+        <div className="vista-admin">
+        <Link className="vista-admin-link" to="/vista-administrador"><h4 >VistaAdmin</h4></Link>
+        </div>
+
+           
 
        </header>
+
+      
 
     );
 }

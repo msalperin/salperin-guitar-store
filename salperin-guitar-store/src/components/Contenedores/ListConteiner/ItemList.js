@@ -8,7 +8,8 @@ const ItemList = ({productos}) => {
 
         <div className="contenedor-items">
            
-           <h1 className="titulo-listado">Listado de Productos: </h1>
+           <h1 className="titulo-listado">Listado de Productos: </h1>   
+
 
           
 

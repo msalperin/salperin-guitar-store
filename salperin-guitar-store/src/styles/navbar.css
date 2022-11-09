@@ -144,4 +144,17 @@ nav ul li{
     font-size: 13px;
 }
 
+.vista-admin{
+    position: relative;
+    color: #000e12;
+    margin-left: -150px;
+    margin-top: 155px;
+    margin-right: 5px;
+    
+}
+
+.vista-admin-link {
+    color: #000e12;
+}
+
 
