@@ -1,4 +1,6 @@
 
+link y diseño slider
+logica busqueda en slider en vista administrador
 
 
 Bugs No se actualiza total en carrito
@@ -21,13 +23,16 @@ user auth OK
 Traer que usuario esta o local storage
 
 
-Filtros / SearchBar
+- Filtros / SearchBar
+- Ligar usuario auth con usuario firebase
+- Hacer Carrito y wishlist
+- Version Mobile
+
 agregar visual ticket
 
 Agregar comentarios/rating
 
 Mobile
-
 
 
 Asides:

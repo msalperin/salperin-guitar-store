@@ -12,17 +12,18 @@ import AccesoUsuario from './components/AccesoUsuario';
 import VistaUsuario from './components/VistaUsuario'; 
 
 import { RutaProtegida } from './components/RutaProtegida';
-import { CustomProvider } from './context/CartContext';
 
+import { CustomProvider } from './context/CartContext';
+import { ProductProvider } from './context/ProductContext';
 import { AuthProvider } from './context/AuthContext';
 
 function App() {
   
-
   return (
     
     <CustomProvider>
     <AuthProvider>
+    <ProductProvider> 
 
     <BrowserRouter>
        
@@ -31,7 +32,8 @@ function App() {
        <Routes>
           <Route path="/" element={<ItemListConteiner/>}/>
           <Route path="/listado-productos/:categoriaBuscada" element={<ItemListConteiner />}/>
-          <Route path="/busqueda/:searchBar" element={<ItemListConteiner />}/>  
+          <Route path="/busqueda/:searchBar" element={<ItemListConteiner />}/>
+          <Route path="/busqueda-precio/:precio" element={<ItemListConteiner />}/>    
           <Route path="/detalle-producto/:id" element={<ItemDetailConteiner />}/> 
           <Route path='/cart' element={<Cart/>} />
           <Route path='/vista-administrador' element={<VistaAdministrador />}/> 
@@ -42,6 +44,7 @@ function App() {
     
     </BrowserRouter>
 
+    </ProductProvider> 
     </AuthProvider>      
     </CustomProvider>
   );

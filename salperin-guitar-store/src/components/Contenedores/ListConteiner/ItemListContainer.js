@@ -2,19 +2,14 @@ import React, {useState, useEffect} from "react";
 import "../../../styles/itemlist.css";
 
 import { useParams } from "react-router-dom";
-
-
 import ItemList from "./ItemList";
-import ItemListFilter from "./Filtros"; 
+import Filtros from "./Filtro"; 
 
 import { db } from "../../../firebase/firebaseConfig";
 import {getDocs, collection, query, where, onSnapshot} from "firebase/firestore";
 
 
-
 const ItemListConteiner = () => {
-
-   
 
     
     const [productos, setProductos] = useState([]);
@@ -22,6 +17,9 @@ const ItemListConteiner = () => {
 
     const {categoriaBuscada} = useParams(); 
     const {searchBar} = useParams();
+    const {precio} = useParams()
+  
+    console.log(precio)    
 
     const productCollection = collection(db, 'productos');
           
@@ -35,20 +33,25 @@ const ItemListConteiner = () => {
         }
       })
       
-        if(!categoriaBuscada && !searchBar){
+        if(!categoriaBuscada && !searchBar && !precio){
           setProductos(listProducts)
-         } else if(!searchBar) {
-          const filtrado = listProducts.filter(producto => producto.categoria === categoriaBuscada);
+         } else if(!searchBar && !precio) {
+          let filtrado = listProducts.filter(producto => producto.categoria === categoriaBuscada);
           setProductos(filtrado)  
-         } else {
-          const q = query(productCollection, where('nombre', '==', `${searchBar}`));
+         } else if(!categoriaBuscada && !precio) {
+          let filtrado = listProducts.filter(producto => producto.nombre === searchBar);
+          setProductos(filtrado)  
+          /* let q = query(productCollection, where('nombre', '==', `${searchBar}`));
           onSnapshot(q,(snapshot) => {
             let busqueda = []
             snapshot.docs.forEach((doc)=> {
               busqueda.push({...doc.data(), id:doc.id})
             })
             setProductos(busqueda)    
-          })
+          }) */
+         } else if(precio){
+          let filtrado = listProducts.filter(producto => producto.precio < precio); 
+          setProductos(filtrado) 
          } 
       })
       .catch((error)=>{
@@ -59,14 +62,14 @@ const ItemListConteiner = () => {
         setLoading(false);
       });
 
-    }, [categoriaBuscada, searchBar]) 
+    }, [categoriaBuscada, searchBar, precio]) 
     
     return ( 
         
         <div className="contenedor-listado">
  
 
-       <ItemListFilter></ItemListFilter>
+       <Filtros></Filtros>
           
 
         { loading ?
