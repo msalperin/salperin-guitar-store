@@ -84,7 +84,7 @@ const NavBar = () => {
         
         
         <div className="vista-admin">
-        <Link className="vista-admin-link" to="/vista-administrador"><h4 >VistaAdmin</h4></Link>
+          <Link className="vista-admin-link" to="/vista-administrador"><h4 >VistaAdmin</h4></Link>
         </div>
 
            

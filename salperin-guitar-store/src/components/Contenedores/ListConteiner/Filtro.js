@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import "../../../styles/itemlist.css";
+import "../../../styles/filtros.css";
 import Slider from "../../Slider";
 
 import { useProduct } from "../../../context/ProductContext";
@@ -12,13 +12,13 @@ const Filtros = () => {
      const {categorias} = useProduct();  
      
      const [valueSlider, setValueSlider] = useState(50);
-     const [categoria, setCategoria] = useState('')
+     const [categoria, setCategoria] = useState('');
 
      
      const handleInputChange = (event) => {
-      if(event.target.name === categoria){
-         setCategoria(event.target.value); 
-      }
+      
+      setCategoria(event.target.value);
+     
      }
      
      const handleChange = (event) => {
@@ -33,45 +33,56 @@ const Filtros = () => {
      
      const handleSubmitCategory = (e) => {
       e.preventDefault();
-      console.log(categoria)
+
+      navigate(`/listado-productos/${categoria}`);
      }
-
-    
-
 
      return ( 
 
-        <div className="contenedor-filtros">
+       <div className="contenedor-filtros">
 
              
-             <h2 className="titulo-filtros">Filtros:</h2>
+         <h2 className="titulo-filtros">Filtros:</h2>
 
-            <form onSubmit={handleSubmitCategory}>
-               
-               <p>Categoria:</p>
-               
-               {categorias.map((categoria) => {
-                return <div key={categoria.id}>
-                           <label htmlFor={categoria.nombre}>{categoria.nombre}:</label>
-                           <input type="radio" name="categoria" value={categoria.nombre} onChange={handleInputChange} ></input>
-                      </div> 
-               })}
-              
-               <button>Buscar</button>
+            <div className="contenedor-filtros-inside">
 
-             </form>   
+                 <form onSubmit={handleSubmitCategory}>
+               
+                    <h3 className="titulo-busqueda">Categoria:</h3>
+               
+                    <div className="container-filtro-categoria">
+                      
+                      
+                       {categorias.map((categoria) => {
+                        return <div className="etiqueta-categoria"  key={categoria.id}>
+                          
+                             <div className="input-categoria">
+                           <input  type="radio" name="categoria" value={categoria.nombre} onChange={handleInputChange} ></input>
+                             </div>
+                             <label className="label-categoria"  htmlFor={categoria.nombre}>{categoria.nombre}</label> 
+                           </div> 
+                       })}
+                     
+                      <button className="boton-buscar">Buscar</button>
+                    
+                    </div>
+
+                 </form>   
 
              
-            <form onSubmit={handleSubmit}>
-              <div>
-                <h3>{valueSlider}</h3>
-                <Slider value={valueSlider} handleChange={handleChange} min={0} max={100000} step={500}></Slider>
-               <button>Buscar</button> 
-              </div>   
-             </form>
-            
+                 <form onSubmit={handleSubmit}>
+                   <div>
+                   <h3 className="titulo-busqueda">Precio:</h3>
+                   <Slider value={valueSlider} handleChange={handleChange} min={0} max={100000} step={500}></Slider>
+                   <h3>{valueSlider}</h3>                
+                   <button className="boton-buscar">Buscar</button> 
+                   </div>   
+                 </form>
+           
+           </div>
 
-        </div>
+
+       </div>
      );
 }
  

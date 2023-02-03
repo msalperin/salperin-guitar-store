@@ -3,8 +3,6 @@ link y diseño slider
 logica busqueda en slider en vista administrador
 
 
-Bugs No se actualiza total en carrito
-
 check - agrego base de datos pero no toma bien el id
 
 
@@ -22,7 +20,6 @@ user auth OK
 
 Traer que usuario esta o local storage
 
-
 - Filtros / SearchBar
 - Ligar usuario auth con usuario firebase
 - Hacer Carrito y wishlist
@@ -33,7 +30,6 @@ agregar visual ticket
 Agregar comentarios/rating
 
 Mobile
-
 
 Asides:
 
